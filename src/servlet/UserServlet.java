@@ -54,7 +54,7 @@ public class UserServlet extends HttpServlet{
 			//request.setAttribute("userName", userName);
 			request.getRequestDispatcher("loginSuccess.jsp").forward(request, response);
 		}else{
-			response.getWriter().print("µÇÂ¼Ê§°Ü£¬ÇëÖØÐÂµÇÂ¼£¡");
+			response.getWriter().print("ï¿½ï¿½Â¼Ê§ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½Â¼ï¿½ï¿½");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 	}
@@ -65,10 +65,10 @@ public class UserServlet extends HttpServlet{
 		String password = request.getParameter("password");
 		response.setContentType("text/html;charset=utf-8");
 			if(userDao.regist(userName, password)){
-				request.setAttribute("msg", "×¢²á³É¹¦");
+				request.setAttribute("msg", "×¢ï¿½ï¿½É¹ï¿½");
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 		}else{
-			request.setAttribute("msg","×¢²áÊ§°Ü");
+			request.setAttribute("msg","×¢ï¿½ï¿½Ê§ï¿½ï¿½");
 			request.getRequestDispatcher("regist.jsp").forward(request, response);
 		}
 		
@@ -111,11 +111,11 @@ public class UserServlet extends HttpServlet{
 		String password = request.getParameter("password");
 		response.setContentType("text/html;charset=utf-8");
 		if(userDao.updateUserPassword(userName, password)){
-			request.setAttribute("msg", "ÐÞ¸Ä³É¹¦");
+			request.setAttribute("msg", "ï¿½Þ¸Ä³É¹ï¿½");
 			queryAll(request, response);
 			//request.getRequestDispatcher("queryAll.jsp").forward(request, response);
 		}else{
-			request.setAttribute("msg", "ÐÞ¸ÄÊ§°Ü");
+			request.setAttribute("msg", "ï¿½Þ¸ï¿½Ê§ï¿½ï¿½");
 			queryAll(request, response);
 			//request.getRequestDispatcher("queryAll.jsp").forward(request, response);
 		}
@@ -125,15 +125,14 @@ public class UserServlet extends HttpServlet{
 			throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
 		if(userDao.deleteById(id)){
-			request.setAttribute("msg", "É¾³ý³É¹¦");
+			request.setAttribute("msg", "É¾ï¿½ï¿½É¹ï¿½");
 			queryAll(request, response);
 			//response.getWriter().print(1);
 			//request.getRequestDispatcher("queryAll.jsp").forward(request, response);
 		}else{
-			request.setAttribute("msg", "É¾³ýÊ§°Ü");
+			request.setAttribute("msg", "É¾ï¿½ï¿½Ê§ï¿½ï¿½");
 			queryAll(request, response);
 			//request.getRequestDispatcher("queryAll.jsp").forward(request, response);
 		}
-		
 	}
 }

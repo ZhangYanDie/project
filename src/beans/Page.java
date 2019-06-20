@@ -11,6 +11,7 @@ public class Page {
 	public int getPageSize() {
 		return pageSize;
 	}
+	
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
 	}

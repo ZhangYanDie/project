@@ -14,5 +14,4 @@ public interface UserDao {
 	public boolean deleteById(int id);
 	public boolean updateUserPassword(String userName,String password);
 	public int rowCount();
-
 }

@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-
 public class DBUtil {
 	private DBUtil(){}
 	private static String url;

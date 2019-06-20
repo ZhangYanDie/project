@@ -17,12 +17,6 @@ import beans.User;
 public class SessionFilter implements Filter{
 
 	@Override
-	public void destroy() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void doFilter(ServletRequest req, ServletResponse res,
 			FilterChain filter) throws IOException, ServletException {
 		HttpServletRequest request = (HttpServletRequest)req;
@@ -44,6 +38,12 @@ public class SessionFilter implements Filter{
 
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void destroy() {
 		// TODO Auto-generated method stub
 		
 	}
