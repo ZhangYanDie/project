@@ -54,7 +54,7 @@ public class UserServlet extends HttpServlet{
 			//request.setAttribute("userName", userName);
 			request.getRequestDispatcher("loginSuccess.jsp").forward(request, response);
 		}else{
-			response.getWriter().print("��¼ʧ�ܣ������µ�¼��");
+			response.getWriter().print("登录失败，请重新登录！");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 	}
@@ -65,10 +65,10 @@ public class UserServlet extends HttpServlet{
 		String password = request.getParameter("password");
 		response.setContentType("text/html;charset=utf-8");
 			if(userDao.regist(userName, password)){
-				request.setAttribute("msg", "ע��ɹ�");
+				request.setAttribute("msg", "注册成功，请登录！");
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 		}else{
-			request.setAttribute("msg","ע��ʧ��");
+			request.setAttribute("msg","注册失败");
 			request.getRequestDispatcher("regist.jsp").forward(request, response);
 		}
 		
@@ -111,11 +111,11 @@ public class UserServlet extends HttpServlet{
 		String password = request.getParameter("password");
 		response.setContentType("text/html;charset=utf-8");
 		if(userDao.updateUserPassword(userName, password)){
-			request.setAttribute("msg", "�޸ĳɹ�");
+			request.setAttribute("msg", "修改成功");
 			queryAll(request, response);
 			//request.getRequestDispatcher("queryAll.jsp").forward(request, response);
 		}else{
-			request.setAttribute("msg", "�޸�ʧ��");
+			request.setAttribute("msg", "修改失败");
 			queryAll(request, response);
 			//request.getRequestDispatcher("queryAll.jsp").forward(request, response);
 		}
@@ -125,12 +125,12 @@ public class UserServlet extends HttpServlet{
 			throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
 		if(userDao.deleteById(id)){
-			request.setAttribute("msg", "ɾ��ɹ�");
+			request.setAttribute("msg", "删除成功");
 			queryAll(request, response);
 			//response.getWriter().print(1);
 			//request.getRequestDispatcher("queryAll.jsp").forward(request, response);
 		}else{
-			request.setAttribute("msg", "ɾ��ʧ��");
+			request.setAttribute("msg", "删除失败");
 			queryAll(request, response);
 			//request.getRequestDispatcher("queryAll.jsp").forward(request, response);
 		}
